@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Currency Swap</title>
+    <link href="/src/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <form id="swap-form">
+      <h5>Swap</h5>
+
+      <!-- From Currency Dropdown -->
+      <div class="dropdown">
+        <label for="input-token">From Currency</label>
+        <div id="input-token" class="dropdown-selected">
+          <img src="" alt="Token" id="input-token-logo" style="display: none" />
+          <span>Select Token</span>
+        </div>
+        <div id="input-token-list" class="dropdown-options"></div>
+      </div>
+
+      <!-- Amount to Send -->
+      <div class="amount-input">
+        <label for="input-amount">Amount to send</label>
+        <input id="input-amount" type="number" min="0" step="any" required />
+      </div>
+
+      <!-- To Currency Dropdown -->
+      <div class="dropdown">
+        <label for="output-token">To Currency</label>
+        <div id="output-token" class="dropdown-selected">
+          <img
+            src=""
+            alt="Token"
+            id="output-token-logo"
+            style="display: none"
+          />
+          <span>Select Token</span>
+        </div>
+        <div id="output-token-list" class="dropdown-options"></div>
+      </div>
+
+      <!-- Amount to Receive -->
+      <div class="amount-input">
+        <label for="output-amount">Amount to receive</label>
+        <input id="output-amount" type="number" disabled />
+      </div>
+
+      <!-- Confirm Swap Button -->
+      <button id="swap-button" type="submit">CONFIRM SWAP</button>
+      <div id="loading-indicator" style="display: none">Loading...</div>
+    </form>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
