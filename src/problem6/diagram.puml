@@ -1,0 +1,23 @@
+@startuml
+skinparam defaultFontName Arial
+
+actor User
+participant "Web Client" as Client
+participant "API Server" as Server
+database "Database" as DB
+participant "WebSocket Service" as WS
+
+User -> Client: Complete action
+Client -> Server: POST /update-score
+Server -> DB: Validate user and token
+Server -> DB: Update score
+Server -> Client: Return success response
+Server -> WS: Broadcast updated scores
+WS -> Client: Push live updates
+
+User -> Client: Request scoreboard
+Client -> Server: GET /scoreboard
+Server -> DB: Fetch top 10 scores
+Server -> Client: Return scores
+@enduml
+// visit https://www.plantuml.com/plantuml/dpng/VOz1Jq8n48Jl_HKRxaIzleD1G8qd2HNVUMateQ6qjRlbzsjf3myntYQThxCp2nRCKavUeP6OOSUKLS8iphY4GM0sqXvMtb6G6I1tUOqyRTv0KpvJhaYNogBW7fbWjkxgugwND_awcYF9vPypZHgrKhKBp1_xoG5MyPGy2G4QSJ6ezbw9Td60pRl-WBkIB0hDsSHCgbaLMYy7-4JlgWcbPcEm8F58uHUrkmJ0D63QOqjISW0knX0pPE8K0q_9KG-mp16jGHPeVMpBOpNgQTYcy06yErF7-7RtbhuAiRJ_-uZP_Z7zzVbd-OIuNlH2OWuWCS73VU_npx3cBoZOSlBV
